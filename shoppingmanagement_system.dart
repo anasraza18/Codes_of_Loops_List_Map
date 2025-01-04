@@ -17,7 +17,7 @@ void main(){
       'stock' : 20,
     },
   ];
-
+//----------------------------------1. List All Products:------------------------------------------
   for (var i in ListofProduct) {
     print('');
     print("Product Nmae : ${i['name']}");
@@ -25,4 +25,6 @@ void main(){
     print("Product Stock : ${i['stock']}");
     print('');
   }
+//----------------------------------------2. Add Product to Cart:------------------------------
+   
 }
