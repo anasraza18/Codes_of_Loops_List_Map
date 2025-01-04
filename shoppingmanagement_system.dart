@@ -36,10 +36,10 @@ void main(){
     }
 
     stdout.write("Enter the price :");
-    dynamic price = stdin.readLineSync()!;
+    int price = int.parse(stdin.readLineSync()!);
 
     stdout.write("Enter the Stock :");
-    dynamic stock = stdin.readLineSync()!;
+    int stock = int.parse(stdin.readLineSync()!);
 
     ListofProduct.add({
       'name' : name,
@@ -55,5 +55,14 @@ for (var i in ListofProduct) {
     print("Product Stock : ${i['stock']}");
     print('');
   }
-//--------------------------------------------------------------
+//---------------------------------------------3. Calculate Total Cart Value:-----------------
+  int count;
+  for (var i in ListofProduct) {
+    count = i['price'] * i['stock'];
+    print("Total price of ${i['name']} in cart : \$${count}");
+    print('');
+  }
+  
+//-------------------------------------------4. Display Cart Items:--------------------
+   
 }
