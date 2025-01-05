@@ -97,9 +97,9 @@ void main(){
     
     if (selectedprod != null) {
       stdout.write("Enter the quantity : ");
-      int quantity = int.parse(stdin.readLineSync()! ?? '0');
+      int quantity = int.parse(stdin.readLineSync()!);
 
-      if (quantity != null && quantity > 0 && quantity <= selectedprod['stock']) {
+      if (quantity == true && quantity > 0 && quantity <= selectedprod['stock']) {
         selectedprod['stock'] -= quantity;
         print('');
         print("updated stock of ${selectedprod['name']} is ${selectedprod['stock']}");
@@ -111,7 +111,7 @@ void main(){
         });
         print('');
         print("Added $quantity of ${selectedprod['name']}");
-      }else if(quantity == null){
+      }else if(quantity == false){
         print('');
         print('Invalid Quantity or out of stock');
         break;
@@ -145,7 +145,7 @@ void main(){
        break;
      }
      
-     if (Productcard != null) {
+     if (Productcard == true) {
       Productcard.removeWhere((e) => e['name'] == rmvcard);  
       print("Removed!"); 
      }else{
@@ -160,4 +160,5 @@ void main(){
     print('');
   }
 //-----------------------------------------------------------------------
+   
 }
