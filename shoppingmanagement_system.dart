@@ -27,34 +27,34 @@ void main(){
     print('');
   }
 //----------------------------------------2. Add Product to Cart:------------------------------
- while (true) {
-    stdout.write("Enter the product name or exit :");
-    dynamic name = stdin.readLineSync()!;
+//  while (true) {
+//     stdout.write("Enter the product name or exit :");
+//     dynamic name = stdin.readLineSync()!;
 
-    if (name.toLowerCase() == 'exit') {
-      break; 
-    }
+//     if (name.toLowerCase() == 'exit') {
+//       break; 
+//     }
 
-    stdout.write("Enter the price :");
-    int price = int.parse(stdin.readLineSync()!);
+//     stdout.write("Enter the price :");
+//     int price = int.parse(stdin.readLineSync()!);
 
-    stdout.write("Enter the Stock :");
-    int stock = int.parse(stdin.readLineSync()!);
+//     stdout.write("Enter the Stock :");
+//     int stock = int.parse(stdin.readLineSync()!);
 
-    ListofProduct.add({
-      'name' : name,
-      'price' : price,
-      'stock' : stock,
-    });
-  }
+//     ListofProduct.add({
+//       'name' : name,
+//       'price' : price,
+//       'stock' : stock,
+//     });
+//   }
  
-for (var i in ListofProduct) {
-    print('');
-    print("Product Name : ${i['name']}");
-    print("Product price : ${i['price']}");
-    print("Product Stock : ${i['stock']}");
-    print('');
-  }
+// for (var i in ListofProduct) {
+//     print('');
+//     print("Product Name : ${i['name']}");
+//     print("Product price : ${i['price']}");
+//     print("Product Stock : ${i['stock']}");
+//     print('');
+//   }
 //---------------------------------------------3. Calculate Total Cart Value:-----------------
   int count;
   for (var i in ListofProduct) {
@@ -63,6 +63,25 @@ for (var i in ListofProduct) {
     print('');
   }
   
-//-------------------------------------------4. Display Cart Items:--------------------
-   
+//-------------------------------------------5. Remove Product from Cart:--------------------
+   while (true) {
+    stdout.write("Remove the product name or exit : ");
+    dynamic rmv = stdin.readLineSync()!;
+
+    if (rmv.toLowerCase() == 'exit') {
+      break; 
+    }
+
+    ListofProduct.removeWhere((e) => e['name'].toString().toLowerCase() == rmv?.toLowerCase());
+  }
+
+   for (var i in ListofProduct) {
+    print('');
+    print("Product Name : ${i['name']}");
+    print("Product price : ${i['price']}");
+    print("Product Stock : ${i['stock']}");
+    print('');
+  }
+//------------------------------------------6. Apply Discount Based on Total Cart Value:---------------------
+     
 }
