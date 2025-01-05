@@ -56,12 +56,12 @@ void main(){
 //     print('');
 //   }
 //---------------------------------------------Calculate Total Product List Value:-----------------
-  int count;
-  for (var i in ListofProduct) {
-    count = i['price'] * i['stock'];
-    print("Total price of ${i['name']} in cart : \$${count}");
-    print('');
-  }
+  // int count;
+  // for (var i in ListofProduct) {
+  //   count = i['price'] * i['stock'];
+  //   print("Total price of ${i['name']} in cart : \$${count}");
+  //   print('');
+  // }
   
 //-------------------------------------------Remove Product from Product List:--------------------
   //  while (true) {
@@ -83,82 +83,122 @@ void main(){
   //   print('');
   // }
 //------------------------------------------Add Product to Cart:---------------------
-  List Productcard = [];
+  // List Productcard = [];
 
-  while (true) {
-    stdout.write("Add to card or exit :");
-    dynamic cardPname = stdin.readLineSync()!;
+  // while (true) {
+  //   stdout.write("Add to card or exit :");
+  //   dynamic cardPname = stdin.readLineSync()!;
 
-    if (cardPname == '' || cardPname.toLowerCase() == 'exit') {
-      break; 
-    }
+  //   if (cardPname == '' || cardPname.toLowerCase() == 'exit') {
+  //     break; 
+  //   }
 
-    var selectedprod = ListofProduct.firstWhere((e) => e['name'] == cardPname);
+  //   var selectedprod = ListofProduct.firstWhere((e) => e['name'] == cardPname);
     
-    if (selectedprod != null) {
-      stdout.write("Enter the quantity : ");
-      int quantity = int.parse(stdin.readLineSync()!);
+  //   if (selectedprod != null) {
+  //     stdout.write("Enter the quantity : ");
+  //     int quantity = int.parse(stdin.readLineSync()!);
 
-      if (quantity == true && quantity > 0 && quantity <= selectedprod['stock']) {
-        selectedprod['stock'] -= quantity;
-        print('');
-        print("updated stock of ${selectedprod['name']} is ${selectedprod['stock']}");
+  //     if (quantity != null && quantity > 0 && quantity <= selectedprod['stock']) {
+  //       selectedprod['stock'] -= quantity;
+  //       print('');
+  //       print("updated stock of ${selectedprod['name']} is ${selectedprod['stock']}");
 
-        Productcard.add({
-          'name' : selectedprod['name'],
-          'price' : selectedprod['price'],
-          'Quantity' : quantity,
-        });
-        print('');
-        print("Added $quantity of ${selectedprod['name']}");
-      }else if(quantity == false){
-        print('');
-        print('Invalid Quantity or out of stock');
-        break;
-      }else{
-        print('');
-        print('Invalid Quantity or out of stock');
-      } 
-    } 
-  }
+  //       Productcard.add({
+  //         'name' : selectedprod['name'],
+  //         'price' : selectedprod['price'],
+  //         'Quantity' : quantity,
+  //       });
+  //       print('');
+  //       print("Added $quantity of ${selectedprod['name']}");
+  //     }else if(quantity == null){
+  //       print('');
+  //       print('Invalid Quantity or out of stock');
+  //       break;
+  //     }else{
+  //       print('');
+  //       print('Invalid Quantity or out of stock');
+  //     } 
+  //   } 
+  // }
 //---------------------------------------------------Calculate Total Cart Value:-------------------------
-        int totalprice = 0;
-        for (var items in Productcard) {
-          totalprice = items['price'] * items['Quantity'];
-                  print('');
-        print("Total Price of ${items['name']} : ${totalprice}");
-    }
+    //     int totalprice = 0;
+    //     for (var items in Productcard) {
+    //       totalprice = items['price'] * items['Quantity'];
+    //               print('');
+    //     print("Total Price of ${items['name']} : ${totalprice}");
+    // }
 //-----------------------------------------------------Display Cart Items:--------------------------------------------------
-   for (var i in Productcard) {
-    print('');
-    print("Product Name : ${i['name']}");
-    print("Product price : ${i['price']}");
-    print("Product Quantity : ${i['Quantity']}");
-    print('');
-  }
+  //  for (var i in Productcard) {
+  //   print('');
+  //   print("Product Name : ${i['name']}");
+  //   print("Product price : ${i['price']}");
+  //   print("Product Quantity : ${i['Quantity']}");
+  //   print('');
+  // }
 //---------------------------------------------------------Remove Product from Cart:---------------
-   while (true) {
+  //  while (true) {
      
-     stdout.write("Remove from card or exit : ");
-     dynamic rmvcard = stdin.readLineSync();
-     if (rmvcard.toLowerCase() == 'exit') {
-       break;
-     }
+  //    stdout.write("Remove from card or exit : ");
+  //    dynamic rmvcard = stdin.readLineSync();
+  //    if (rmvcard.toLowerCase() == 'exit') {
+  //      break;
+  //    }
      
-     if (Productcard == true) {
-      Productcard.removeWhere((e) => e['name'] == rmvcard);  
-      print("Removed!"); 
-     }else{
-      print("invalid product or not contain");
-     }
-   }
-   for (var i in Productcard) {
+  //    if (Productcard == true) {
+  //     Productcard.removeWhere((e) => e['name'] == rmvcard);  
+  //     print("Removed!"); 
+  //    }else{
+  //     print("invalid product or not contain");
+  //    }
+  //  }
+  //  for (var i in Productcard) {
+  //   print('');
+  //   print("Product Name : ${i['name']}");
+  //   print("Product price : ${i['price']}");
+  //   print("Product Quantity : ${i['Quantity']}");
+  //   print('');
+  // }
+//--------------------------------------------Apply Discount Based on Total Cart Value:---------------------
+  //  int disc = 10;
+  //  if(totalprice >= 5000){
+
+  //   double dicountAmount = (totalprice * disc)/100;
+  //   double finalAmount = totalprice - dicountAmount;
+
+  //   print("Discount Applied (${disc}% : -${dicountAmount})");
+  //   print("Final Amount : $finalAmount");
+
+  //  }else{
+  //   print("No Discount Amount, your cart value is $totalprice");
+  //  }
+//-------------------------------------------------------Update Product Stock:----------------------
+  while (true) {
+    stdout.write("Update the product name or exit : ");
+    dynamic updName = stdin.readLineSync();
+    if (updName.toString().toLowerCase() == 'exit') {
+      break;
+    }
+    stdout.write("Update the product price : ");
+    int updPrice = int.parse(stdin.readLineSync()!);
+
+    stdout.write("Update the product Stock : ");
+    int updStock = int.parse(stdin.readLineSync()!);
+
+    ListofProduct.firstWhere((e) => e['name'] == updName);
+
+    for (var upd in ListofProduct) {
+      upd['price'] = updPrice;
+      upd['stock'] = updStock;
+    }
+    
+  }
+  
+   for (var i in ListofProduct) {
     print('');
     print("Product Name : ${i['name']}");
     print("Product price : ${i['price']}");
-    print("Product Quantity : ${i['Quantity']}");
+    print("Product Stock : ${i['stock']}");
     print('');
   }
-//-----------------------------------------------------------------------
-   
 }
