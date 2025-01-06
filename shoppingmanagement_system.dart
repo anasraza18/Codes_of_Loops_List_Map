@@ -5,7 +5,7 @@ void main(){
      {
       'name' : 'Mobile',
       'price' : 50000,
-      'stock' : 5,
+      'stock' : 0,
     },
      {
       'name' : 'Laptop',
@@ -19,13 +19,13 @@ void main(){
     },
   ];
 //----------------------------------List All Products:------------------------------------------
-  for (var i in ListofProduct) {
-    print('');
-    print("Product Name : ${i['name']}");
-    print("Product price : ${i['price']}");
-    print("Product Stock : ${i['stock']}");
-    print('');
-  }
+  // for (var i in ListofProduct) {
+  //   print('');
+  //   print("Product Name : ${i['name']}");
+  //   print("Product price : ${i['price']}");
+  //   print("Product Stock : ${i['stock']}");
+  //   print('');
+  // }
 //----------------------------------------Add Product to Product List:------------------------------
 //  while (true) {
 //     stdout.write("Enter the product name or exit :");
@@ -83,44 +83,60 @@ void main(){
   //   print('');
   // }
 //------------------------------------------Add Product to Cart:---------------------
-  // List Productcard = [];
+  List Productcard = [];
 
-  // while (true) {
-  //   stdout.write("Add to card or exit :");
-  //   dynamic cardPname = stdin.readLineSync()!;
-
-  //   if (cardPname == '' || cardPname.toLowerCase() == 'exit') {
-  //     break; 
-  //   }
-
-  //   var selectedprod = ListofProduct.firstWhere((e) => e['name'] == cardPname);
+  
+  while (true) {
     
-  //   if (selectedprod != null) {
-  //     stdout.write("Enter the quantity : ");
-  //     int quantity = int.parse(stdin.readLineSync()!);
+    stdout.write("Add to card or exit :");
+    dynamic cardPname = stdin.readLineSync()!;
 
-  //     if (quantity != null && quantity > 0 && quantity <= selectedprod['stock']) {
-  //       selectedprod['stock'] -= quantity;
-  //       print('');
-  //       print("updated stock of ${selectedprod['name']} is ${selectedprod['stock']}");
+    if(cardPname == ''){
+      print("product name can not be empty!");
+      continue;
+    }
 
-  //       Productcard.add({
-  //         'name' : selectedprod['name'],
-  //         'price' : selectedprod['price'],
-  //         'Quantity' : quantity,
-  //       });
-  //       print('');
-  //       print("Added $quantity of ${selectedprod['name']}");
-  //     }else if(quantity == null){
-  //       print('');
-  //       print('Invalid Quantity or out of stock');
-  //       break;
-  //     }else{
-  //       print('');
-  //       print('Invalid Quantity or out of stock');
-  //     } 
-  //   } 
-  // }
+    if (cardPname.toLowerCase() == 'exit') {
+      break; 
+    }
+
+    var selectedprod = ListofProduct.firstWhere((e) => e['name'] == cardPname);
+    
+    while (true) {
+      
+      stdout.write("Enter the quantity : ");
+      dynamic quantityinput = stdin.readLineSync();
+
+      if (quantityinput.toString().toLowerCase() == 'exit') {
+        break;
+      }
+
+      if(quantityinput == ''){
+        print("Enter the quantity!");
+        continue;
+      }
+      int quantity = int.parse(quantityinput);
+
+      if (quantity > 0 && quantity >= selectedprod['stock']) {
+        selectedprod['stock'] -= quantity;
+        print('');
+        print("updated stock of ${selectedprod['name']} is ${selectedprod['stock']}");
+
+        Productcard.add({
+          'name' : selectedprod['name'],
+          'price' : selectedprod['price'],
+          'Quantity' : quantity,
+        });
+        print('');
+        print("Added $quantity of ${selectedprod['name']}");
+
+      }else if(quantity <= 0 && quantity <= selectedprod['stock']){
+        print('');
+        print('Invalid Quantity or out of stock');
+      }
+      } 
+    } 
+  
 //---------------------------------------------------Calculate Total Cart Value:-------------------------
     //     int totalprice = 0;
     //     for (var items in Productcard) {
@@ -173,32 +189,49 @@ void main(){
   //   print("No Discount Amount, your cart value is $totalprice");
   //  }
 //-------------------------------------------------------Update Product Stock:----------------------
-  while (true) {
-    stdout.write("Update the product name or exit : ");
-    dynamic updName = stdin.readLineSync();
-    if (updName.toString().toLowerCase() == 'exit') {
-      break;
-    }
-    stdout.write("Update the product price : ");
-    int updPrice = int.parse(stdin.readLineSync()!);
+  // while (true) {
+  //   stdout.write("Update the product name or exit : ");
+  //   dynamic updName = stdin.readLineSync();
+  //   if (updName.toString().toLowerCase() == 'exit') {
+  //     break;
+  //   }
+  //   stdout.write("Update the product price : ");
+  //   int updPrice = int.parse(stdin.readLineSync()!);
 
-    stdout.write("Update the product Stock : ");
-    int updStock = int.parse(stdin.readLineSync()!);
+  //   stdout.write("Update the product Stock : ");
+  //   int updStock = int.parse(stdin.readLineSync()!);
 
-    ListofProduct.firstWhere((e) => e['name'] == updName);
+  //   ListofProduct.firstWhere((e) => e['name'] == updName);
 
-    for (var upd in ListofProduct) {
-      upd['price'] = updPrice;
-      upd['stock'] = updStock;
-    }
+  //   for (var upd in ListofProduct) {
+  //     upd['price'] = updPrice;
+  //     upd['stock'] = updStock;
+  //   }
     
-  }
+  // }
   
-   for (var i in ListofProduct) {
+  //  for (var i in ListofProduct) {
+  //   print('');
+  //   print("Product Name : ${i['name']}");
+  //   print("Product price : ${i['price']}");
+  //   print("Product Stock : ${i['stock']}");
+  //   print('');
+  // }
+//-----------------------------------------Check Product Availability in Cart:-----------------
+    if (Productcard.isEmpty) {
+      print('');
+      print("Product cart is empty");
+
+    }else{
+      for (var i in Productcard) {
     print('');
+    print('====check product card=====');
     print("Product Name : ${i['name']}");
     print("Product price : ${i['price']}");
-    print("Product Stock : ${i['stock']}");
+    print("Product Quantity : ${i['Quantity']}");
     print('');
   }
+    }
+//------------------------------------------------------------------
+   
 }
