@@ -5,7 +5,7 @@ void main(){
      {
       'name' : 'Mobile',
       'price' : 50000,
-      'stock' : 0,
+      'stock' : 5,
     },
      {
       'name' : 'Laptop',
@@ -102,7 +102,7 @@ void main(){
 
     var selectedprod = ListofProduct.firstWhere((e) => e['name'] == cardPname);
     
-    while (true) {
+    while(true) {
       
       stdout.write("Enter the quantity : ");
       dynamic quantityinput = stdin.readLineSync();
@@ -117,7 +117,7 @@ void main(){
       }
       int quantity = int.parse(quantityinput);
 
-      if (quantity > 0 && quantity >= selectedprod['stock']) {
+      if (quantity > 0 && quantity <= selectedprod['stock']) {
         selectedprod['stock'] -= quantity;
         print('');
         print("updated stock of ${selectedprod['name']} is ${selectedprod['stock']}");
@@ -130,7 +130,7 @@ void main(){
         print('');
         print("Added $quantity of ${selectedprod['name']}");
 
-      }else if(quantity <= 0 && quantity <= selectedprod['stock']){
+      }else if(quantity <= 0 && quantity >= selectedprod['stock']){
         print('');
         print('Invalid Quantity or out of stock');
       }
@@ -218,11 +218,7 @@ void main(){
   //   print('');
   // }
 //-----------------------------------------Check Product Availability in Cart:-----------------
-    if (Productcard.isEmpty) {
-      print('');
-      print("Product cart is empty");
-
-    }else{
+    if (Productcard.isNotEmpty) {
       for (var i in Productcard) {
     print('');
     print('====check product card=====');
@@ -231,7 +227,24 @@ void main(){
     print("Product Quantity : ${i['Quantity']}");
     print('');
   }
-    }
-//------------------------------------------------------------------
    
+    }else if(Productcard.isEmpty){
+      print('');
+      print("Product cart is empty");
+   
+    }
+//--------------------------------------------Find Most Expensive Product in Cart:----------------------
+   int h_price = 0;
+   
+   for (var i in Productcard) {
+    
+    var c_price = i['price'];
+
+    if (c_price > h_price) {
+      h_price = c_price;
+      print('');
+      print('Highest price of product in cart is ${i['name']} : \$${h_price}');
+    }
+   }
+//--------------------------------------------------Group Products by Price Range:--------------
 }
