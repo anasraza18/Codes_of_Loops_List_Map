@@ -19,69 +19,69 @@ void main(){
     },
   ];
 //----------------------------------List All Products:------------------------------------------
-  // for (var i in ListofProduct) {
-  //   print('');
-  //   print("Product Name : ${i['name']}");
-  //   print("Product price : ${i['price']}");
-  //   print("Product Stock : ${i['stock']}");
-  //   print('');
-  // }
+  for (var i in ListofProduct) {
+    print('');
+    print("Product Name : ${i['name']}");
+    print("Product price : ${i['price']}");
+    print("Product Stock : ${i['stock']}");
+    print('');
+  }
 //----------------------------------------Add Product to Product List:------------------------------
-//  while (true) {
-//     stdout.write("Enter the product name or exit :");
-//     dynamic name = stdin.readLineSync()!;
+ while (true) {
+    stdout.write("Enter the product name or exit :");
+    dynamic name = stdin.readLineSync()!;
 
-//     if (name.toLowerCase() == 'exit') {
-//       break; 
-//     }
+    if (name.toLowerCase() == 'exit') {
+      break; 
+    }
 
-//     stdout.write("Enter the price :");
-//     int price = int.parse(stdin.readLineSync()!);
+    stdout.write("Enter the price :");
+    int price = int.parse(stdin.readLineSync()!);
 
-//     stdout.write("Enter the Stock :");
-//     int stock = int.parse(stdin.readLineSync()!);
+    stdout.write("Enter the Stock :");
+    int stock = int.parse(stdin.readLineSync()!);
 
-//     ListofProduct.add({
-//       'name' : name,
-//       'price' : price,
-//       'stock' : stock,
-//     });
-//   }
+    ListofProduct.add({
+      'name' : name,
+      'price' : price,
+      'stock' : stock,
+    });
+  }
  
-// for (var i in ListofProduct) {
-//     print('');
-//     print("Product Name : ${i['name']}");
-//     print("Product price : ${i['price']}");
-//     print("Product Stock : ${i['stock']}");
-//     print('');
-//   }
+for (var i in ListofProduct) {
+    print('');
+    print("Product Name : ${i['name']}");
+    print("Product price : ${i['price']}");
+    print("Product Stock : ${i['stock']}");
+    print('');
+  }
 //---------------------------------------------Calculate Total Product List Value:-----------------
-  // int count;
-  // for (var i in ListofProduct) {
-  //   count = i['price'] * i['stock'];
-  //   print("Total price of ${i['name']} in cart : \$${count}");
-  //   print('');
-  // }
+  int count;
+  for (var i in ListofProduct) {
+    count = i['price'] * i['stock'];
+    print("Total price of ${i['name']} in cart : \$${count}");
+    print('');
+  }
   
 //-------------------------------------------Remove Product from Product List:--------------------
-  //  while (true) {
-  //   stdout.write("Remove the product name or exit : ");
-  //   dynamic rmv = stdin.readLineSync()!;
+   while (true) {
+    stdout.write("Remove the product name or exit : ");
+    dynamic rmv = stdin.readLineSync()!;
 
-  //   if (rmv.toLowerCase() == 'exit') {
-  //     break; 
-  //   }
+    if (rmv.toLowerCase() == 'exit') {
+      break; 
+    }
 
-  //   ListofProduct.removeWhere((e) => e['name'].toString().toLowerCase() == rmv?.toLowerCase());
-  // }
+    ListofProduct.removeWhere((e) => e['name'].toString().toLowerCase() == rmv?.toLowerCase());
+  }
 
-  //  for (var i in ListofProduct) {
-  //   print('');
-  //   print("Product Name : ${i['name']}");
-  //   print("Product price : ${i['price']}");
-  //   print("Product Stock : ${i['stock']}");
-  //   print('');
-  // }
+   for (var i in ListofProduct) {
+    print('');
+    print("Product Name : ${i['name']}");
+    print("Product price : ${i['price']}");
+    print("Product Stock : ${i['stock']}");
+    print('');
+  }
 //------------------------------------------Add Product to Cart:---------------------
   List Productcard = [];
 
@@ -138,85 +138,85 @@ void main(){
     } 
   
 //---------------------------------------------------Calculate Total Cart Value:-------------------------
-    //     int totalprice = 0;
-    //     for (var items in Productcard) {
-    //       totalprice = items['price'] * items['Quantity'];
-    //               print('');
-    //     print("Total Price of ${items['name']} : ${totalprice}");
-    // }
+        int totalprice = 0;
+        for (var items in Productcard) {
+          totalprice = items['price'] * items['Quantity'];
+                  print('');
+        print("Total Price of ${items['name']} : ${totalprice}");
+    }
 //-----------------------------------------------------Display Cart Items:--------------------------------------------------
-  //  for (var i in Productcard) {
-  //   print('');
-  //   print("Product Name : ${i['name']}");
-  //   print("Product price : ${i['price']}");
-  //   print("Product Quantity : ${i['Quantity']}");
-  //   print('');
-  // }
+   for (var i in Productcard) {
+    print('');
+    print("Product Name : ${i['name']}");
+    print("Product price : ${i['price']}");
+    print("Product Quantity : ${i['Quantity']}");
+    print('');
+  }
 //---------------------------------------------------------Remove Product from Cart:---------------
-  //  while (true) {
+   while (true) {
      
-  //    stdout.write("Remove from card or exit : ");
-  //    dynamic rmvcard = stdin.readLineSync();
-  //    if (rmvcard.toLowerCase() == 'exit') {
-  //      break;
-  //    }
+     stdout.write("Remove from card or exit : ");
+     dynamic rmvcard = stdin.readLineSync();
+     if (rmvcard.toLowerCase() == 'exit') {
+       break;
+     }
      
-  //    if (Productcard == true) {
-  //     Productcard.removeWhere((e) => e['name'] == rmvcard);  
-  //     print("Removed!"); 
-  //    }else{
-  //     print("invalid product or not contain");
-  //    }
-  //  }
-  //  for (var i in Productcard) {
-  //   print('');
-  //   print("Product Name : ${i['name']}");
-  //   print("Product price : ${i['price']}");
-  //   print("Product Quantity : ${i['Quantity']}");
-  //   print('');
-  // }
+     if (Productcard == true) {
+      Productcard.removeWhere((e) => e['name'] == rmvcard);  
+      print("Removed!"); 
+     }else{
+      print("invalid product or not contain");
+     }
+   }
+   for (var i in Productcard) {
+    print('');
+    print("Product Name : ${i['name']}");
+    print("Product price : ${i['price']}");
+    print("Product Quantity : ${i['Quantity']}");
+    print('');
+  }
 //--------------------------------------------Apply Discount Based on Total Cart Value:---------------------
-  //  int disc = 10;
-  //  if(totalprice >= 5000){
+   int disc = 10;
+   if(totalprice >= 5000){
 
-  //   double dicountAmount = (totalprice * disc)/100;
-  //   double finalAmount = totalprice - dicountAmount;
+    double dicountAmount = (totalprice * disc)/100;
+    double finalAmount = totalprice - dicountAmount;
 
-  //   print("Discount Applied (${disc}% : -${dicountAmount})");
-  //   print("Final Amount : $finalAmount");
+    print("Discount Applied (${disc}% : -${dicountAmount})");
+    print("Final Amount : $finalAmount");
 
-  //  }else{
-  //   print("No Discount Amount, your cart value is $totalprice");
-  //  }
+   }else{
+    print("No Discount Amount, your cart value is $totalprice");
+   }
 //-------------------------------------------------------Update Product Stock:----------------------
-  // while (true) {
-  //   stdout.write("Update the product name or exit : ");
-  //   dynamic updName = stdin.readLineSync();
-  //   if (updName.toString().toLowerCase() == 'exit') {
-  //     break;
-  //   }
-  //   stdout.write("Update the product price : ");
-  //   int updPrice = int.parse(stdin.readLineSync()!);
+  while (true) {
+    stdout.write("Update the product name or exit : ");
+    dynamic updName = stdin.readLineSync();
+    if (updName.toString().toLowerCase() == 'exit') {
+      break;
+    }
+    stdout.write("Update the product price : ");
+    int updPrice = int.parse(stdin.readLineSync()!);
 
-  //   stdout.write("Update the product Stock : ");
-  //   int updStock = int.parse(stdin.readLineSync()!);
+    stdout.write("Update the product Stock : ");
+    int updStock = int.parse(stdin.readLineSync()!);
 
-  //   ListofProduct.firstWhere((e) => e['name'] == updName);
+    ListofProduct.firstWhere((e) => e['name'] == updName);
 
-  //   for (var upd in ListofProduct) {
-  //     upd['price'] = updPrice;
-  //     upd['stock'] = updStock;
-  //   }
+    for (var upd in ListofProduct) {
+      upd['price'] = updPrice;
+      upd['stock'] = updStock;
+    }
     
-  // }
+  }
   
-  //  for (var i in ListofProduct) {
-  //   print('');
-  //   print("Product Name : ${i['name']}");
-  //   print("Product price : ${i['price']}");
-  //   print("Product Stock : ${i['stock']}");
-  //   print('');
-  // }
+   for (var i in ListofProduct) {
+    print('');
+    print("Product Name : ${i['name']}");
+    print("Product price : ${i['price']}");
+    print("Product Stock : ${i['stock']}");
+    print('');
+  }
 //-----------------------------------------Check Product Availability in Cart:-----------------
     if (Productcard.isNotEmpty) {
       for (var i in Productcard) {
@@ -247,4 +247,25 @@ void main(){
     }
    }
 //--------------------------------------------------Group Products by Price Range:--------------
+   Map category = {
+    'Expensive' : [],
+    'Medium' : [],
+    'Low' : [],
+   };
+
+   for (var i in ListofProduct) {
+
+     if (i['price'] >= 10000) {
+       
+       category['Expensive'] = i;
+
+     }else if(i['price'] >= 5000 && i['price'] < 10000){
+      category['Medium'] = i;
+
+     }else if(i['price'] >= 0 && i['price'] < 5000){
+      category['Low'] = i;
+     }
+   }
+   print(category);
+//--------------------------------------------------------------
 }
